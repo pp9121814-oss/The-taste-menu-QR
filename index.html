@@ -1,172 +1,412 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Taste Restro - Menu</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --gold: #d4af37;
-            --bg-dark: #0f0f11;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Taste - Menu</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        body {
-            background-color: var(--bg-dark);
-            font-family: 'Poppins', sans-serif;
-            color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px 15px 30px;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f4ef;
+    color: #222;
+}
 
-        /* 1. ENTRY SCREEN (Intro Text Animation) */
-        .intro-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--bg-dark);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 999;
-            animation: fadeOutOverlay 0.8s ease 2.2s forwards;
-            pointer-events: none;
-        }
+header {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+}
 
-        .intro-text {
-            font-family: 'Cinzel', serif;
-            font-size: 26px;
-            color: var(--gold);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            text-align: center;
-            padding: 0 20px;
-            opacity: 0;
-            transform: translateY(10px);
-            animation: fadeInText 1s ease 0.2s forwards;
-        }
+header h1 {
+    font-size: 32px;
+}
 
-        @keyframes fadeInText {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+header p {
+    margin-top: 6px;
+    color: #ccc;
+}
 
-        @keyframes fadeOutOverlay {
-            to {
-                opacity: 0;
-                visibility: hidden;
-            }
-        }
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 25px 15px;
+}
 
-        /* 2. MAIN MENU CONTENT */
-        header {
-            text-align: center;
-            margin-top: 10px;
-            margin-bottom: 25px;
-        }
+/* Table */
+.table-box {
+    background: white;
+    padding: 18px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 15px rgba(0,0,0,.08);
+}
 
-        h1 {
-            font-family: 'Cinzel', serif;
-            color: var(--gold);
-            font-size: 28px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
+.table-box label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
 
-        p.subtitle {
-            font-size: 12px;
-            color: #a0a0a0;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
+.table-box select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+}
 
-        /* Menu Container */
-        .menu-wrapper {
-            max-width: 550px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+/* Menu */
+.menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 18px;
+}
 
-        .menu-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(212, 175, 55, 0.25);
-            border-radius: 14px;
-            padding: 8px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
-        }
+.item {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 3px 15px rgba(0,0,0,.08);
+}
 
-        .menu-card img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            display: block;
-        }
+.item h3 {
+    margin-bottom: 8px;
+}
 
-        /* 3. AESTHETIC FOOTER CREDITS */
-        footer {
-            margin-top: 35px;
-            padding-top: 15px;
-            border-top: 1px solid rgba(212, 175, 55, 0.15);
-            width: 100%;
-            max-width: 550px;
-            text-align: center;
-        }
+.price {
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
 
-        .credits {
-            font-size: 10px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: rgba(212, 175, 55, 0.7);
-            font-weight: 400;
-        }
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-        .credits a {
-            color: rgba(212, 175, 55, 0.9);
-            text-decoration: none;
-            font-weight: 500;
-        }
-    </style>
+.quantity button {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 8px;
+    background: #111;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.quantity span {
+    min-width: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Cart */
+.cart {
+    margin-top: 30px;
+    background: white;
+    padding: 22px;
+    border-radius: 16px;
+    box-shadow: 0 3px 15px rgba(0,0,0,.08);
+}
+
+.cart h2 {
+    margin-bottom: 15px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.total {
+    text-align: right;
+    font-size: 21px;
+    font-weight: bold;
+    margin-top: 18px;
+}
+
+.order-btn {
+    width: 100%;
+    margin-top: 18px;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #25D366;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.order-btn:hover {
+    opacity: .9;
+}
+
+.empty {
+    color: #777;
+}
+</style>
 </head>
+
 <body>
 
-    <div class="intro-overlay">
-        <div class="intro-text">This is your menu</div>
+<header>
+    <h1>THE TASTE</h1>
+    <p>Delicious food, unforgettable taste</p>
+</header>
+
+<div class="container">
+
+    <!-- TABLE NUMBER -->
+    <div class="table-box">
+        <label for="tableNumber">🪑 Select Table Number</label>
+
+        <select id="tableNumber">
+            <option value="">Select Table</option>
+            <option value="1">Table 1</option>
+            <option value="2">Table 2</option>
+            <option value="3">Table 3</option>
+            <option value="4">Table 4</option>
+            <option value="5">Table 5</option>
+            <option value="6">Table 6</option>
+            <option value="7">Table 7</option>
+            <option value="8">Table 8</option>
+            <option value="9">Table 9</option>
+            <option value="10">Table 10</option>
+            <option value="11">Table 11</option>
+            <option value="12">Table 12</option>
+            <option value="13">Table 13</option>
+            <option value="14">Table 14</option>
+            <option value="15">Table 15</option>
+            <option value="16">Table 16</option>
+            <option value="17">Table 17</option>
+            <option value="18">Table 18</option>
+            <option value="19">Table 19</option>
+            <option value="20">Table 20</option>
+        </select>
     </div>
 
-    <header>
-        <h1>The Taste Restro</h1>
-        <p class="subtitle">Digital Menu</p>
-    </header>
+    <!-- MENU -->
+    <div class="menu" id="menu"></div>
 
-    <div class="menu-wrapper">
-        <div class="menu-card">
-            <img src="menu1.jpg" alt="The Taste Restro Main Menu">
+    <!-- CART -->
+    <div class="cart">
+        <h2>🛒 Your Order</h2>
+
+        <div id="cartItems">
+            <p class="empty">No items added yet.</p>
         </div>
 
-        <div class="menu-card">
-            <img src="menu2.jpg" alt="The Taste Restro Drinks and Snacks Menu">
+        <div class="total">
+            Total: ₹<span id="total">0</span>
         </div>
+
+        <button class="order-btn" onclick="placeOrder()">
+            📲 Place Order on WhatsApp
+        </button>
     </div>
 
-    <footer>
-        <p class="credits">Made by - Priyanshu &nbsp;|&nbsp; Contact: <a href="tel:9520951715">9520951715</a></p>
-    </footer>
+</div>
+
+<script>
+
+/* =================================
+   APNE MENU ITEMS YAHAN CHANGE KARO
+   ================================= */
+
+const menuItems = [
+    {
+        name: "Veg Burger",
+        price: 120
+    },
+    {
+        name: "Cheese Pizza",
+        price: 250
+    },
+    {
+        name: "French Fries",
+        price: 100
+    },
+    {
+        name: "White Sauce Pasta",
+        price: 180
+    },
+    {
+        name: "Cold Coffee",
+        price: 90
+    },
+    {
+        name: "Cold Drink",
+        price: 60
+    }
+];
+
+/* Cart */
+let cart = {};
+
+/* Create menu */
+const menu = document.getElementById("menu");
+
+menuItems.forEach((item, index) => {
+
+    cart[index] = 0;
+
+    const div = document.createElement("div");
+
+    div.className = "item";
+
+    div.innerHTML = `
+        <h3>${item.name}</h3>
+        <div class="price">₹${item.price}</div>
+
+        <div class="quantity">
+            <button onclick="changeQuantity(${index}, -1)">−</button>
+
+            <span id="qty-${index}">0</span>
+
+            <button onclick="changeQuantity(${index}, 1)">+</button>
+        </div>
+    `;
+
+    menu.appendChild(div);
+});
+
+
+/* Quantity change */
+function changeQuantity(index, change) {
+
+    cart[index] += change;
+
+    if (cart[index] < 0) {
+        cart[index] = 0;
+    }
+
+    document.getElementById(`qty-${index}`).innerText = cart[index];
+
+    updateCart();
+}
+
+
+/* Update cart */
+function updateCart() {
+
+    const cartItems = document.getElementById("cartItems");
+
+    cartItems.innerHTML = "";
+
+    let total = 0;
+    let hasItems = false;
+
+    menuItems.forEach((item, index) => {
+
+        if (cart[index] > 0) {
+
+            hasItems = true;
+
+            const itemTotal = item.price * cart[index];
+
+            total += itemTotal;
+
+            const div = document.createElement("div");
+
+            div.className = "cart-item";
+
+            div.innerHTML = `
+                <span>
+                    ${item.name} × ${cart[index]}
+                </span>
+
+                <strong>
+                    ₹${itemTotal}
+                </strong>
+            `;
+
+            cartItems.appendChild(div);
+        }
+    });
+
+    if (!hasItems) {
+        cartItems.innerHTML =
+            `<p class="empty">No items added yet.</p>`;
+    }
+
+    document.getElementById("total").innerText = total;
+}
+
+
+/* =================================
+   WHATSAPP ORDER
+   ================================= */
+
+function placeOrder() {
+
+    const table = document.getElementById("tableNumber").value;
+
+    if (!table) {
+        alert("Please select your table number.");
+        return;
+    }
+
+    let message = "🍽️ *THE TASTE - NEW ORDER*%0A%0A";
+
+    message += "🪑 *Table No.: " + table + "*%0A%0A";
+
+    let total = 0;
+    let hasItems = false;
+
+    menuItems.forEach((item, index) => {
+
+        if (cart[index] > 0) {
+
+            hasItems = true;
+
+            const itemTotal = item.price * cart[index];
+
+            total += itemTotal;
+
+            message +=
+                "🍴 " +
+                item.name +
+                " × " +
+                cart[index] +
+                " = ₹" +
+                itemTotal +
+                "%0A";
+        }
+    });
+
+    if (!hasItems) {
+        alert("Please select at least one item.");
+        return;
+    }
+
+    message += "%0A💰 *TOTAL: ₹" + total + "*";
+
+    /* YOUR WHATSAPP NUMBER */
+    const phoneNumber = "919520951715";
+
+    const whatsappURL =
+        "https://wa.me/" +
+        phoneNumber +
+        "?text=" +
+        message;
+
+    window.open(whatsappURL, "_blank");
+}
+
+</script>
 
 </body>
 </html>
