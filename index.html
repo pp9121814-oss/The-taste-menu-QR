@@ -3,207 +3,1424 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#17120e">
+<meta name="theme-color" content="#241812">
 <title>The Taste Restro</title>
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
 
 :root{
- --wood:#21170f;--wood2:#2b1d13;--ink:#141313;--paper:#eee2cb;
- --gold:#b58a72;--gold2:#b58a72;--muted:#9d917e;--red:#713f35;
+  --bg:#17110d;
+  --bg2:#241912;
+  --card:#2b2018;
+  --cream:#f5eee2;
+  --cream2:#e9dcc8;
+  --gold:#c5a05a;
+  --gold2:#dfc27e;
+  --burgundy:#681d2a;
+  --burgundy2:#842838;
+  --text:#f3eadb;
+  --muted:#aa9a85;
+  --dark:#241914;
+  --border:rgba(197,160,90,.28);
 }
-*{box-sizing:border-box}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
 body{
- margin:0;background:
- radial-gradient(circle at 15% 10%,rgba(184,150,92,.09),transparent 28%),
- linear-gradient(135deg,#17110d,#0d0d0c 48%,#18110d);
- color:var(--paper);font-family:Inter,Arial,sans-serif;
+  margin:0;
+  background:
+    radial-gradient(circle at 50% -10%,rgba(197,160,90,.14),transparent 34%),
+    radial-gradient(circle at 0% 50%,rgba(104,29,42,.12),transparent 30%),
+    linear-gradient(135deg,#120d09,#211710 50%,#110c09);
+  color:var(--text);
+  font-family:Inter,Arial,sans-serif;
 }
+
 body:before{
- content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;
- background-image:repeating-linear-gradient(8deg,transparent 0 7px,rgba(255,255,255,.025) 8px,transparent 9px);
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.13;
+  background-image:
+    repeating-linear-gradient(
+      8deg,
+      transparent 0 7px,
+      rgba(255,255,255,.025) 8px,
+      transparent 9px
+    );
 }
-.wrap{max-width:1120px;margin:auto;padding:0 18px}
 
-/* compact physical-menu style header */
+.wrap{
+  max-width:1120px;
+  margin:auto;
+  padding:0 18px;
+}
+
+/* HEADER */
+
 header{
- margin:18px auto 0;max-width:1120px;padding:25px 22px 20px;
- border:1px solid rgba(141,31,45,.28);
- background:linear-gradient(180deg,#fbf8f1,#f4ecdf);
- position:relative;text-align:center;
- box-shadow:0 12px 34px rgba(62,35,29,.10);
+  margin:18px auto 0;
+  max-width:1120px;
+  padding:30px 22px 25px;
+  border:1px solid rgba(197,160,90,.55);
+  background:
+    linear-gradient(145deg,#faf5ec,#eee2cf);
+  position:relative;
+  text-align:center;
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.30),
+    inset 0 0 0 5px rgba(197,160,90,.06);
 }
-header:before,header:after{
- content:"";position:absolute;width:42px;height:42px;border-color:var(--gold);
+
+header:before,
+header:after{
+  content:"";
+  position:absolute;
+  width:45px;
+  height:45px;
+  border-color:var(--gold);
 }
-header:before{left:10px;top:10px;border-left:1px solid;border-top:1px solid}
-header:after{right:10px;bottom:10px;border-right:1px solid;border-bottom:1px solid}
-.kicker{font-size:9px;letter-spacing:.45em;color:var(--gold2);margin-bottom:5px}
+
+header:before{
+  left:11px;
+  top:11px;
+  border-left:1px solid;
+  border-top:1px solid;
+}
+
+header:after{
+  right:11px;
+  bottom:11px;
+  border-right:1px solid;
+  border-bottom:1px solid;
+}
+
+.kicker{
+  font-size:9px;
+  letter-spacing:.48em;
+  color:#8a6a34;
+  margin-bottom:7px;
+}
+
 .logo{
- font:600 clamp(42px,7vw,76px)/.75 "Cormorant Garamond",serif;
- letter-spacing:.01em;color:#641c27;text-shadow:0 1px 0 rgba(181,138,114,.18);
+  font:
+    600 clamp(45px,7vw,78px)/.78
+    "Cormorant Garamond",serif;
+  letter-spacing:.015em;
+  color:#641c27;
 }
-.sub{font-size:10px;letter-spacing:.55em;color:#641c27;margin-top:10px;padding-left:.55em}
-.rule{width:min(360px,80%);height:1px;background:rgba(184,150,92,.45);margin:17px auto 0;position:relative}
-.rule span{position:absolute;left:50%;top:-7px;transform:translateX(-50%);background:#f6f0e6;padding:0 11px;color:var(--gold);font:500 10px Inter}
 
-/* search */
-.searchbox{max-width:700px;margin:22px auto 0;position:relative}
+.sub{
+  font-size:10px;
+  letter-spacing:.60em;
+  color:#641c27;
+  margin-top:13px;
+  padding-left:.60em;
+  font-weight:600;
+}
+
+.rule{
+  width:min(380px,80%);
+  height:1px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(197,160,90,.7),
+      transparent
+    );
+  margin:20px auto 0;
+  position:relative;
+}
+
+.rule span{
+  position:absolute;
+  left:50%;
+  top:-7px;
+  transform:translateX(-50%);
+  background:#f2e8d8;
+  padding:0 13px;
+  color:#a47c35;
+  font:500 10px Inter;
+  letter-spacing:.15em;
+}
+
+/* SEARCH */
+
+.searchbox{
+  max-width:700px;
+  margin:24px auto 0;
+  position:relative;
+}
+
 .searchbox input{
- width:100%;padding:14px 45px 14px 17px;border-radius:5px;
- border:1px solid #d9c8ba;outline:0;
- background:#ffffff;color:#29211f;font-size:13px;
- box-shadow:0 8px 24px rgba(0,0,0,.18)
+  width:100%;
+  padding:15px 48px 15px 18px;
+  border-radius:4px;
+  border:1px solid rgba(197,160,90,.35);
+  outline:0;
+  background:#f8f2e8;
+  color:#241a15;
+  font-size:13px;
+  box-shadow:0 10px 30px rgba(0,0,0,.22);
+  transition:.2s;
 }
-.searchbox input:focus{border-color:rgba(184,150,92,.75)}
-.searchbox span{position:absolute;right:17px;top:50%;transform:translateY(-50%);color:var(--gold);font-size:18px}
 
-/* categories */
+.searchbox input::placeholder{
+  color:#8d8070;
+}
+
+.searchbox input:focus{
+  border-color:var(--gold);
+  box-shadow:
+    0 0 0 3px rgba(197,160,90,.10),
+    0 12px 30px rgba(0,0,0,.25);
+}
+
+.searchbox span{
+  position:absolute;
+  right:17px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#a47c35;
+  font-size:19px;
+}
+
+/* CATEGORY NAV */
+
 .nav{
- max-width:1120px;margin:13px auto 0;padding:0 18px;
- display:flex;gap:6px;overflow:auto;scrollbar-width:none
+  max-width:1120px;
+  margin:15px auto 0;
+  padding:0 18px;
+  display:flex;
+  gap:7px;
+  overflow:auto;
+  scrollbar-width:none;
 }
-.nav::-webkit-scrollbar{display:none}
+
+.nav::-webkit-scrollbar{
+  display:none;
+}
+
 .nav button{
- white-space:nowrap;background:#fbf8f1;border:1px solid #dfd2c7;
- color:#7c6862;padding:8px 12px;border-radius:3px;font-size:10px;cursor:pointer;
+  white-space:nowrap;
+  background:linear-gradient(145deg,#f7f0e4,#e8dcc9);
+  border:1px solid rgba(197,160,90,.35);
+  color:#69584c;
+  padding:9px 14px;
+  border-radius:3px;
+  font-size:10px;
+  cursor:pointer;
+  transition:.2s;
 }
-.nav button.active,.nav button:hover{color:#ffffff;border-color:#641c27;background:#641c27}
 
-/* menu */
-.menu{padding:8px 0 150px}
-.section{margin:31px 0 0}
+.nav button:hover{
+  color:#fff;
+  border-color:var(--burgundy);
+  background:var(--burgundy);
+  transform:translateY(-1px);
+}
+
+.nav button.active{
+  color:#fff;
+  border-color:var(--burgundy);
+  background:
+    linear-gradient(145deg,#792333,#5d1824);
+  box-shadow:0 5px 16px rgba(104,29,42,.28);
+}
+
+/* MENU */
+
+.menu{
+  padding:10px 0 160px;
+}
+
+.section{
+  margin:35px 0 0;
+}
+
 .section-title{
- display:flex;align-items:center;gap:13px;margin-bottom:11px
+  display:flex;
+  align-items:center;
+  gap:13px;
+  margin-bottom:12px;
 }
+
 .section-title h2{
- margin:0;color:#641c27;font:600 29px/1 "Cormorant Garamond",serif;
- white-space:nowrap
+  margin:0;
+  color:var(--gold2);
+  font:
+    600 31px/1
+    "Cormorant Garamond",serif;
+  white-space:nowrap;
+  text-shadow:0 2px 10px rgba(0,0,0,.25);
 }
-.section-title i{height:1px;background:linear-gradient(90deg,rgba(100,28,39,.40),rgba(181,138,114,.22),transparent);flex:1}
-.section-title small{font-size:9px;color:#756b5c;letter-spacing:.16em}
 
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px 12px}
+.section-title i{
+  height:1px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(197,160,90,.55),
+      rgba(197,160,90,.15),
+      transparent
+    );
+  flex:1;
+}
+
+.section-title small{
+  font-size:9px;
+  color:#988875;
+  letter-spacing:.17em;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:9px 13px;
+}
+
 .item{
- display:grid;grid-template-columns:74px 1fr auto;gap:11px;align-items:center;
- min-height:76px;padding:7px;border:1px solid rgba(255,255,255,.055);
- background:linear-gradient(90deg,rgba(55,39,27,.7),rgba(24,21,18,.82));
- transition:.18s
+  display:grid;
+  grid-template-columns:74px 1fr auto;
+  gap:12px;
+  align-items:center;
+  min-height:80px;
+  padding:8px;
+  border:1px solid rgba(197,160,90,.12);
+  background:
+    linear-gradient(
+      120deg,
+      rgba(52,39,28,.97),
+      rgba(31,25,20,.97)
+    );
+  border-radius:3px;
+  box-shadow:0 7px 20px rgba(0,0,0,.15);
+  transition:.2s;
 }
-.item:hover{border-color:rgba(184,150,92,.32);transform:translateY(-1px)}
-.pic{
- width:74px;height:62px;object-fit:cover;border-radius:2px;
- filter:saturate(.78) contrast(.98)
-}
-.name{font:600 20px/1.02 "Cormorant Garamond",serif;color:#29211f}
-.cat{font-size:8px;color:#786e61;letter-spacing:.11em;text-transform:uppercase;margin-top:5px}
-.price{font-size:14px;color:#641c27;white-space:nowrap;font-weight:600}
-.price small{font-size:9px;color:#837767}
-.actions{display:flex;justify-content:flex-end;align-items:center;gap:5px;margin-top:5px}
-.qty button{
- width:23px;height:23px;border:1px solid #d9c8ba;background:#ffffffaf6;color:#641c27;
- border-radius:2px;cursor:pointer
-}
-.qty span{font-size:10px;min-width:14px;text-align:center}
-.add{
- border:1px solid rgba(184,150,92,.35);background:#ffffff7f4;color:#641c27;
- padding:5px 8px;border-radius:2px;font-size:9px;cursor:pointer
-}
-.variants{grid-column:2/-1;display:flex;gap:5px;margin-top:-3px}
-.variants button{
- background:#ffffff;border:1px solid #d9c8ba;color:#80665e;
- padding:5px 8px;border-radius:2px;font-size:9px;cursor:pointer
-}
-.variants button.active{color:#ffffff;border-color:#641c27;background:#641c27}
-.noresult{text-align:center;padding:70px 10px;color:#8f8475}
-.noresult b{display:block;font:600 36px "Cormorant Garamond";color:#b58a72;margin-bottom:5px}
 
-/* cart */
+.item:hover{
+  transform:translateY(-2px);
+  border-color:rgba(197,160,90,.42);
+  box-shadow:0 12px 25px rgba(0,0,0,.25);
+}
+
+.pic{
+  width:74px;
+  height:64px;
+  object-fit:cover;
+  border-radius:3px;
+  border:1px solid rgba(197,160,90,.20);
+  filter:saturate(.88) contrast(1.02);
+  background:#382c22;
+}
+
+.name{
+  font:
+    600 21px/1.02
+    "Cormorant Garamond",serif;
+  color:#f1e7d7;
+}
+
+.cat{
+  font-size:8px;
+  color:#9c8c78;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-top:5px;
+}
+
+.price{
+  font-size:14px;
+  color:var(--gold2);
+  white-space:nowrap;
+  font-weight:600;
+}
+
+.actions{
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  gap:6px;
+  margin-top:6px;
+}
+
+.qty{
+  display:flex;
+  align-items:center;
+  gap:3px;
+}
+
+.qty button{
+  width:24px;
+  height:24px;
+  border:1px solid rgba(197,160,90,.32);
+  background:#211711;
+  color:var(--gold2);
+  border-radius:2px;
+  cursor:pointer;
+  transition:.15s;
+}
+
+.qty button:hover{
+  background:var(--gold);
+  color:#211711;
+}
+
+.qty span{
+  font-size:10px;
+  min-width:15px;
+  text-align:center;
+  color:#ddd0bd;
+}
+
+.add{
+  border:1px solid rgba(197,160,90,.35);
+  background:rgba(104,29,42,.82);
+  color:#fff;
+  padding:6px 9px;
+  border-radius:2px;
+  font-size:9px;
+  cursor:pointer;
+  transition:.15s;
+}
+
+.add:hover{
+  background:var(--burgundy2);
+  border-color:var(--gold);
+  transform:translateY(-1px);
+}
+
+/* VARIANTS */
+
+.variants{
+  grid-column:2/-1;
+  display:flex;
+  gap:6px;
+  margin-top:-3px;
+}
+
+.variants button{
+  background:#eee3d1;
+  border:1px solid rgba(197,160,90,.35);
+  color:#725e4e;
+  padding:5px 9px;
+  border-radius:2px;
+  font-size:9px;
+  cursor:pointer;
+}
+
+.variants button.active{
+  color:#fff;
+  border-color:var(--burgundy);
+  background:var(--burgundy);
+}
+
+/* NO RESULT */
+
+.noresult{
+  text-align:center;
+  padding:80px 10px;
+  color:#9b8d7b;
+}
+
+.noresult b{
+  display:block;
+  font:
+    600 38px
+    "Cormorant Garamond",serif;
+  color:var(--gold2);
+  margin-bottom:6px;
+}
+
+/* CART */
+
 .cart{
- position:fixed;z-index:20;left:50%;bottom:15px;transform:translateX(-50%);
- width:min(700px,calc(100% - 24px));background:rgba(255,253,249,.98);
- border:1px solid rgba(141,31,45,.28);box-shadow:0 18px 60px rgba(62,35,29,.16)
+  position:fixed;
+  z-index:20;
+  left:50%;
+  bottom:15px;
+  transform:translateX(-50%);
+  width:min(700px,calc(100% - 24px));
+  background:rgba(246,239,227,.98);
+  border:1px solid rgba(197,160,90,.50);
+  border-radius:4px;
+  box-shadow:0 18px 60px rgba(0,0,0,.45);
 }
-.carthead{padding:12px 14px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
-.carthead b{font-size:12px}.carthead span{color:#b58a72;font-size:13px}
-.panel{display:none;border-top:1px solid rgba(184,150,92,.2);padding:12px}
-.cart.open .panel{display:block}
-.cartlist{max-height:210px;overflow:auto}
-.crow{display:grid;grid-template-columns:1fr auto auto;gap:10px;padding:8px 0;border-bottom:1px solid #fffffffff0a;font-size:11px}
-.crow strong{color:#b58a72}.remove{border:0;background:none;color:#766d62;cursor:pointer}
-.form{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px}
-.form input,.form select{
- background:#ffffff;border:1px solid #d9c8ba;color:#29211f;padding:10px;border-radius:2px;outline:0
+
+.carthead{
+  padding:13px 15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:pointer;
 }
+
+.carthead b{
+  font-size:12px;
+  color:#2a1e18;
+}
+
+.carthead span{
+  color:#9d7835;
+  font-size:13px;
+}
+
+.panel{
+  display:none;
+  border-top:1px solid rgba(197,160,90,.25);
+  padding:12px;
+}
+
+.cart.open .panel{
+  display:block;
+}
+
+.cartlist{
+  max-height:210px;
+  overflow:auto;
+}
+
+.crow{
+  display:grid;
+  grid-template-columns:1fr auto auto;
+  gap:10px;
+  padding:9px 0;
+  border-bottom:1px solid rgba(100,80,60,.12);
+  font-size:11px;
+  color:#3b2d24;
+}
+
+.crow strong{
+  color:var(--burgundy);
+}
+
+.remove{
+  border:0;
+  background:none;
+  color:#766b5f;
+  cursor:pointer;
+  font-size:16px;
+}
+
+.form{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:7px;
+  margin-top:10px;
+}
+
+.form input,
+.form select{
+  background:#fffaf2;
+  border:1px solid #d8c7ae;
+  color:#30241d;
+  padding:10px;
+  border-radius:2px;
+  outline:0;
+  font-size:12px;
+}
+
+.form input:focus,
+.form select:focus{
+  border-color:var(--gold);
+}
+
 .order{
- grid-column:1/-1;border:0;background:#641c27;color:#ffffff;padding:11px;
- font-weight:600;cursor:pointer;border-radius:2px
+  grid-column:1/-1;
+  border:0;
+  background:
+    linear-gradient(135deg,#7b2332,#5e1825);
+  color:#fff;
+  padding:12px;
+  font-weight:600;
+  cursor:pointer;
+  border-radius:2px;
+  letter-spacing:.03em;
+  box-shadow:0 7px 18px rgba(104,29,42,.25);
+  transition:.2s;
 }
+
+.order:hover{
+  background:
+    linear-gradient(135deg,#8c2a3b,#6b1b29);
+  transform:translateY(-1px);
+}
+
+/* TOAST */
+
 .toast{
- position:fixed;z-index:30;bottom:94px;left:50%;transform:translateX(-50%);
- background:#641c27;border:1px solid #641c27;color:#ffffff;
- padding:9px 14px;font-size:10px;opacity:0;transition:.2s
+  position:fixed;
+  z-index:30;
+  bottom:94px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#6f1d2a;
+  border:1px solid var(--gold);
+  color:#fff;
+  padding:10px 16px;
+  font-size:10px;
+  opacity:0;
+  pointer-events:none;
+  transition:.2s;
+  box-shadow:0 8px 25px rgba(0,0,0,.3);
 }
-.toast.show{opacity:1}
+
+.toast.show{
+  opacity:1;
+}
+
+/* MOBILE */
+
 @media(max-width:700px){
- .wrap{padding:0 12px}
- header{margin-top:10px;padding:23px 13px 18px}
- .grid{grid-template-columns:1fr}
- .item{grid-template-columns:68px 1fr auto}
- .pic{width:68px;height:58px}
- .name{font-size:20px}
- .section-title h2{font-size:27px}
- .form{grid-template-columns:1fr}
- .order{grid-column:auto}
+
+  .wrap{
+    padding:0 12px;
+  }
+
+  header{
+    margin-top:10px;
+    padding:25px 13px 20px;
+  }
+
+  .logo{
+    font-size:52px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .item{
+    grid-template-columns:68px 1fr auto;
+  }
+
+  .pic{
+    width:68px;
+    height:58px;
+  }
+
+  .name{
+    font-size:20px;
+  }
+
+  .section-title h2{
+    font-size:28px;
+  }
+
+  .form{
+    grid-template-columns:1fr;
+  }
+
+  .order{
+    grid-column:auto;
+  }
+
+  .nav{
+    padding:0 12px;
+  }
 }
 </style>
 </head>
+
 <body>
 
 <header>
- <div class="kicker">EST. • THE TASTE •</div>
- <div class="logo">The Taste</div>
- <div class="sub">RESTRO</div>
- <div class="rule"><span>MENU</span></div>
+
+  <div class="kicker">
+    EST. • THE TASTE •
+  </div>
+
+  <div class="logo">
+    The Taste
+  </div>
+
+  <div class="sub">
+    RESTRO
+  </div>
+
+  <div class="rule">
+    <span>MENU</span>
+  </div>
+
 </header>
 
+
 <div class="wrap">
- <div class="searchbox">
-   <input id="search" placeholder="Search your favourite dish..." autocomplete="off">
-   <span>⌕</span>
- </div>
+
+  <div class="searchbox">
+
+    <input
+      id="search"
+      placeholder="Search your favourite dish..."
+      autocomplete="off"
+    >
+
+    <span>⌕</span>
+
+  </div>
+
 </div>
+
 
 <div class="nav wrap" id="nav"></div>
-<main class="wrap menu" id="menu"></main>
 
-<div class="toast" id="toast">Added to order</div>
+<main
+  class="wrap menu"
+  id="menu">
+</main>
 
-<div class="cart" id="cart">
- <div class="carthead" onclick="toggleCart()">
-   <div><b id="count">0 items</b> <span style="color:#766d62;font-size:9px"> • YOUR ORDER</span></div>
-   <span>₹<b id="total">0</b>  ›</span>
- </div>
- <div class="panel">
-   <div class="cartlist" id="cartlist"></div>
-   <div class="form">
-    <select id="table">
-      <option value="">Select table</option>
-      <option>Table 1</option><option>Table 2</option><option>Table 3</option><option>Table 4</option><option>Table 5</option>
-      <option>Table 6</option><option>Table 7</option><option>Table 8</option><option>Table 9</option><option>Table 10</option>
-      <option>Table 11</option><option>Table 12</option><option>Table 13</option><option>Table 14</option><option>Table 15</option>
-      <option>Table 16</option><option>Table 17</option><option>Table 18</option><option>Table 19</option><option>Table 20</option>
-    </select>
-    <input id="note" placeholder="Special request (optional)">
-    <button class="order" onclick="sendOrder()">SEND ORDER ON WHATSAPP</button>
-   </div>
- </div>
+
+<div
+  class="toast"
+  id="toast">
+  Added to order
 </div>
 
+
+<div
+  class="cart"
+  id="cart">
+
+  <div
+    class="carthead"
+    onclick="toggleCart()">
+
+    <div>
+
+      <b id="count">
+        0 items
+      </b>
+
+      <span
+        style="color:#766d62;font-size:9px">
+        • YOUR ORDER
+      </span>
+
+    </div>
+
+    <span>
+      ₹<b id="total">0</b> ›
+    </span>
+
+  </div>
+
+
+  <div class="panel">
+
+    <div
+      class="cartlist"
+      id="cartlist">
+    </div>
+
+
+    <div class="form">
+
+      <select id="table">
+
+        <option value="">
+          Select table
+        </option>
+
+        <option>Table 1</option>
+        <option>Table 2</option>
+        <option>Table 3</option>
+        <option>Table 4</option>
+        <option>Table 5</option>
+        <option>Table 6</option>
+        <option>Table 7</option>
+        <option>Table 8</option>
+        <option>Table 9</option>
+        <option>Table 10</option>
+        <option>Table 11</option>
+        <option>Table 12</option>
+        <option>Table 13</option>
+        <option>Table 14</option>
+        <option>Table 15</option>
+        <option>Table 16</option>
+        <option>Table 17</option>
+        <option>Table 18</option>
+        <option>Table 19</option>
+        <option>Table 20</option>
+
+      </select>
+
+
+      <input
+        id="note"
+        placeholder="Special request (optional)"
+      >
+
+
+      <button
+        class="order"
+        onclick="sendOrder()">
+
+        SEND ORDER ON WHATSAPP
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
 <script>
-const MENU = [{"category": "Tea", "items": [{"name": "Tea", "price": 30, "variants": null, "image": "https://loremflickr.com/640/480/Indian%20chai%20tea?lock=10000", "imageAlt": "Indian chai tea"}, {"name": "Black Tea", "price": 30, "variants": null, "image": "https://loremflickr.com/640/480/black%20tea%20cup?lock=10001", "imageAlt": "black tea cup"}, {"name": "Lemon Tea", "price": 30, "variants": null, "image": "https://loremflickr.com/640/480/lemon%20tea?lock=10002", "imageAlt": "lemon tea"}]}, {"category": "Coffee", "items": [{"name": "Hot Coffee", "price": 70, "variants": null, "image": "https://loremflickr.com/640/480/hot%20coffee%20cup?lock=10003", "imageAlt": "hot coffee cup"}, {"name": "Black Coffee", "price": 50, "variants": null, "image": "https://loremflickr.com/640/480/black%20coffee%20cup?lock=10004", "imageAlt": "black coffee cup"}, {"name": "Cold Coffee", "price": 110, "variants": null, "image": "https://loremflickr.com/640/480/iced%20coffee?lock=10005", "imageAlt": "iced coffee"}, {"name": "Cold Coffee (With IceCream)", "price": 130, "variants": null, "image": "https://loremflickr.com/640/480/iced%20coffee%20ice%20cream?lock=10006", "imageAlt": "iced coffee ice cream"}]}, {"category": "Drinks", "items": [{"name": "Fresh lime soda", "price": 60, "variants": null, "image": "https://loremflickr.com/640/480/fresh%20lime%20soda?lock=10007", "imageAlt": "fresh lime soda"}, {"name": "Cold Drink", "price": 70, "variants": null, "image": "https://loremflickr.com/640/480/cold%20soft%20drink?lock=10008", "imageAlt": "cold soft drink"}, {"name": "Lassi", "price": 70, "variants": null, "image": "https://loremflickr.com/640/480/lassi%20drink?lock=10009", "imageAlt": "lassi drink"}, {"name": "Badam Lassi", "price": 80, "variants": null, "image": "https://loremflickr.com/640/480/badam%20lassi?lock=10010", "imageAlt": "badam lassi"}]}, {"category": "Shakes", "items": [{"name": "Mango Shake", "price": 110, "variants": null, "image": "https://loremflickr.com/640/480/mango%20milkshake?lock=10011", "imageAlt": "mango milkshake"}, {"name": "Oreo Shake", "price": 110, "variants": null, "image": "https://loremflickr.com/640/480/oreo%20milkshake?lock=10012", "imageAlt": "oreo milkshake"}, {"name": "Chocolate Shake", "price": 120, "variants": null, "image": "https://loremflickr.com/640/480/chocolate%20milkshake?lock=10013", "imageAlt": "chocolate milkshake"}, {"name": "Butter scotch shake", "price": 120, "variants": null, "image": "https://loremflickr.com/640/480/butterscotch%20milkshake?lock=10014", "imageAlt": "butterscotch milkshake"}]}, {"category": "Burger / Sandwich", "items": [{"name": "Veg Burger", "price": 100, "variants": null, "image": "https://loremflickr.com/640/480/vegetable%20burger?lock=10015", "imageAlt": "vegetable burger"}, {"name": "Chesse Burger", "price": 120, "variants": null, "image": "https://loremflickr.com/640/480/cheese%20burger?lock=10016", "imageAlt": "cheese burger"}, {"name": "Veg Sandwich", "price": 90, "variants": null, "image": "https://loremflickr.com/640/480/sandwich?lock=10017", "imageAlt": "sandwich"}, {"name": "Veg Grilled Sandwich", "price": 120, "variants": null, "image": "https://loremflickr.com/640/480/sandwich?lock=10018", "imageAlt": "sandwich"}]}, {"category": "Momos", "items": [{"name": "Veg Momos", "price": 90, "variants": null, "image": "https://loremflickr.com/640/480/steamed%20veg%20momos?lock=10019", "imageAlt": "steamed veg momos"}, {"name": "Fried Momos", "price": 140, "variants": null, "image": "https://loremflickr.com/640/480/fried%20momos?lock=10020", "imageAlt": "fried momos"}, {"name": "Chilli Momos", "price": 160, "variants": null, "image": "https://loremflickr.com/640/480/chilli%20momos?lock=10021", "imageAlt": "chilli momos"}]}, {"category": "Maggi", "items": [{"name": "Plain Maggi", "price": 40, "variants": null, "image": "https://loremflickr.com/640/480/plain%20maggi%20noodles?lock=10022", "imageAlt": "plain maggi noodles"}, {"name": "Vegetable Maggi", "price": 70, "variants": null, "image": "https://loremflickr.com/640/480/vegetable%20maggi?lock=10023", "imageAlt": "vegetable maggi"}, {"name": "Butter Maggi", "price": 80, "variants": null, "image": "https://loremflickr.com/640/480/butter%20maggi?lock=10024", "imageAlt": "butter maggi"}, {"name": "Egg Maggi", "price": 110, "variants": null, "image": "https://loremflickr.com/640/480/egg%20maggi?lock=10025", "imageAlt": "egg maggi"}, {"name": "Chicken Maggi", "price": 130, "variants": null, "image": "https://loremflickr.com/640/480/chicken%20maggi?lock=10026", "imageAlt": "chicken maggi"}]}, {"category": "Breakfast", "items": [{"name": "Aalu Paratha", "price": 60, "variants": null, "image": "https://loremflickr.com/640/480/indian%20breakfast?lock=10027", "imageAlt": "indian breakfast"}, {"name": "Onion Paratha", "price": 70, "variants": null, "image": "https://loremflickr.com/640/480/onion%20paratha?lock=10028", "imageAlt": "onion paratha"}, {"name": "Aalu Pyaz Paratha", "price": 70, "variants": null, "image": "https://loremflickr.com/640/480/indian%20breakfast?lock=10029", "imageAlt": "indian breakfast"}, {"name": "Bread Butter", "price": 60, "variants": null, "image": "https://loremflickr.com/640/480/bread%20butter?lock=10030", "imageAlt": "bread butter"}, {"name": "Mix Paatha", "price": 80, "variants": null, "image": "https://loremflickr.com/640/480/mixed%20paratha?lock=10031", "imageAlt": "mixed paratha"}, {"name": "Paneer Paratha", "price": 90, "variants": null, "image": "https://loremflickr.com/640/480/paneer%20paratha?lock=10032", "imageAlt": "paneer paratha"}, {"name": "Masala Omelette", "price": 70, "variants": null, "image": "https://loremflickr.com/640/480/masala%20omelette?lock=10033", "imageAlt": "masala omelette"}, {"name": "Bread Omelette", "price": 90, "variants": null, "image": "https://loremflickr.com/640/480/bread%20omelette?lock=10034", "imageAlt": "bread omelette"}]}, {"category": "Pakora", "items": [{"name": "Aalu Pakora", "price": 100, "variants": null, "image": "https://loremflickr.com/640/480/pakora?lock=10035", "imageAlt": "pakora"}, {"name": "Aalu Pyaz Pakora", "price": 130, "variants": null, "image": "https://loremflickr.com/640/480/pakora?lock=10036", "imageAlt": "pakora"}, {"name": "Mix Pakora", "price": 160, "variants": null, "image": "https://loremflickr.com/640/480/mixed%20pakora?lock=10037", "imageAlt": "mixed pakora"}, {"name": "Paneer Pakora", "price": 190, "variants": null, "image": "https://loremflickr.com/640/480/paneer%20pakora?lock=10038", "imageAlt": "paneer pakora"}]}, {"category": "Macroni", "items": [{"name": "Veg Macroni", "price": 140, "variants": null, "image": "https://loremflickr.com/640/480/vegetable%20macaroni?lock=10039", "imageAlt": "vegetable macaroni"}, {"name": "Veg Macroni (extra chesse)", "price": 160, "variants": null, "image": "https://loremflickr.com/640/480/vegetable%20cheese%20macaroni?lock=10040", "imageAlt": "vegetable cheese macaroni"}, {"name": "Chicken Macroni", "price": 180, "variants": null, "image": "https://loremflickr.com/640/480/chicken%20macaroni?lock=10041", "imageAlt": "chicken macaroni"}]}, {"category": "Soup", "items": [{"name": "Veg Soup", "price": 90, "variants": null, "image": "https://loremflickr.com/640/480/vegetable%20soup?lock=10042", "imageAlt": "vegetable soup"}, {"name": "Hot Manchow", "price": 100, "variants": null, "image": "https://loremflickr.com/640/480/manchow%20soup?lock=10043", "imageAlt": "manchow soup"}, {"name": "Chicken Soup", "price": 130, "variants": null, "image": "https://loremflickr.com/640/480/chicken%20soup?lock=10044", "imageAlt": "chicken soup"}]}, {"category": "Starter Veg", "items": [{"name": "Spring Roll", "price": 120, "variants": null, "image": "https://loremflickr.com/640/480/vegetable%20spring%20rolls?lock=10045", "imageAlt": "vegetable spring rolls"}, {"name": "Chilly Potato", "price": 150, "variants": null, "image": "https://loremflickr.com/640/480/chilli%20potato?lock=10046", "imageAlt": "chilli potato"}, {"name": "Honey Chilly Potato", "price": 170, "variants": null, "image": "https://loremflickr.com/640/480/honey%20chilli%20potato?lock=10047", "imageAlt": "honey chilli potato"}, {"name": "French Fries", "price": 100, "variants": null, "image": "https://loremflickr.com/640/480/french%20fries?lock=10048", "imageAlt": "french fries"}, {"name": "Paneer Finger", "price": 170, "variants": null, "image": "https://loremflickr.com/640/480/paneer%20fingers?lock=10049", "imageAlt": "paneer fingers"}, {"name": "Chilly Paneer", "price": 230, "variants": null, "image": "https://loremflickr.com/640/480/chilli%20paneer?lock=10050", "imageAlt": "chilli paneer"}, {"name": "Chilly Mushroom", "price": 210, "variants": null, "image": "https://loremflickr.com/640/480/chilli%20mushroom?lock=10051", "imageAlt": "chilli mushroom"}, {"name": "Paneer Tikka", "price": 250, "variants": null, "image": "https://loremflickr.com/640/480/paneer%20tikka?lock=10052", "imageAlt": "paneer tikka"}, {"name": "Soya Chaap", "price": 200, "variants": null, "image": "https://loremflickr.com/640/480/soya%20chaap?lock=10053", "imageAlt": "soya chaap"}, {"name": "Peanut Chaat", "price": 180, "variants": null, "image": "https://loremflickr.com/640/480/peanut%20chaat?lock=10054", "imageAlt": "peanut chaat"}]}, {"category": "Starter Non Veg", "items": [{"name": "Chicken Lollipop", "price": null, "variants": {"F": 230}, "image": "https://loremflickr.com/640/480/chicken%20lollipop?lock=10055", "imageAlt": "chicken lollipop"}, {"name": "Chilly Chicken", "price": null, "variants": {"H": 220, "F": 300}, "image": "https://loremflickr.com/640/480/chicken%20starter?lock=10056", "imageAlt": "chicken starter"}, {"name": "Chicken Pakora", "price": null, "variants": {"F": 200}, "image": "https://loremflickr.com/640/480/chicken%20pakora?lock=10057", "imageAlt": "chicken pakora"}, {"name": "Fish Pakora", "price": null, "variants": {"F": 230}, "image": "https://loremflickr.com/640/480/fish%20pakora?lock=10058", "imageAlt": "fish pakora"}, {"name": "Tandoori Chicken", "price": null, "variants": {"H": 260, "F": 370}, "image": "https://loremflickr.com/640/480/tandoori%20chicken?lock=10059", "imageAlt": "tandoori chicken"}]}, {"category": "Noodles Veg & Non Veg", "items": [{"name": "Veg Noodles", "price": 90, "variants": null, "image": "https://loremflickr.com/640/480/vegetable%20noodles?lock=10060", "imageAlt": "vegetable noodles"}, {"name": "Veg Hakka Noodles", "price": 150, "variants": null, "image": "https://loremflickr.com/640/480/veg%20hakka%20noodles?lock=10061", "imageAlt": "veg hakka noodles"}, {"name": "Veg Schezwan Noodles", "price": 160, "variants": null, "image": "https://loremflickr.com/640/480/veg%20schezwan%20noodles?lock=10062", "imageAlt": "veg schezwan noodles"}, {"name": "Veg Singapuri Noodles", "price": 170, "variants": null, "image": "https://loremflickr.com/640/480/veg%20singapore%20noodles?lock=10063", "imageAlt": "veg singapore noodles"}, {"name": "Egg Noodles", "price": 140, "variants": null, "image": "https://loremflickr.com/640/480/egg%20noodles?lock=10064", "imageAlt": "egg noodles"}, {"name": "Chicken Noodles", "price": 180, "variants": null, "image": "https://loremflickr.com/640/480/chicken%20noodles?lock=10065", "imageAlt": "chicken noodles"}]}, {"category": "Rice / Biryani", "items": [{"name": "Plain Rice", "price": 100, "variants": null, "image": "https://loremflickr.com/640/480/plain%20steamed%20rice?lock=10066", "imageAlt": "plain steamed rice"}, {"name": "Jeera Rice", "price": 120, "variants": null, "image": "https://loremflickr.com/640/480/jeera%20rice?lock=10067", "imageAlt": "jeera rice"}, {"name": "Veg Fried Rice", "price": 160, "variants": null, "image": "https://loremflickr.com/640/480/vegetable%20fried%20rice?lock=10068", "imageAlt": "vegetable fried rice"}, {"name": "Egg Fried Rice", "price": 170, "variants": null, "image": "https://loremflickr.com/640/480/egg%20fried%20rice?lock=10069", "imageAlt": "egg fried rice"}, {"name": "Chicken Fried Rice", "price": 190, "variants": null, "image": "https://loremflickr.com/640/480/chicken%20fried%20rice?lock=10070", "imageAlt": "chicken fried rice"}, {"name": "Veg Biryani", "price": 210, "variants": null, "image": "https://loremflickr.com/640/480/vegetable%20biryani?lock=10071", "imageAlt": "vegetable biryani"}, {"name": "Chicken Biryani", "price": 260, "variants": null, "image": "https://loremflickr.com/640/480/chicken%20biryani?lock=10072", "imageAlt": "chicken biryani"}]}, {"category": "Veg Main Course", "items": [{"name": "Kadhai Paneer", "price": null, "variants": {"H": 190, "F": 270}, "image": "https://loremflickr.com/640/480/kadhai%20paneer?lock=10073", "imageAlt": "kadhai paneer"}, {"name": "Sahi Paneer", "price": null, "variants": {"H": 180, "F": 260}, "image": "https://loremflickr.com/640/480/shahi%20paneer?lock=10074", "imageAlt": "shahi paneer"}, {"name": "Paneer Butter Masala", "price": null, "variants": {"H": 190, "F": 270}, "image": "https://loremflickr.com/640/480/paneer%20butter%20masala?lock=10075", "imageAlt": "paneer butter masala"}, {"name": "Muttar Paneer", "price": null, "variants": {"H": 180, "F": 260}, "image": "https://loremflickr.com/640/480/matar%20paneer?lock=10076", "imageAlt": "matar paneer"}, {"name": "Paneer Bhurji", "price": 220, "variants": null, "image": "https://loremflickr.com/640/480/paneer%20bhurji?lock=10077", "imageAlt": "paneer bhurji"}, {"name": "Dal Fry", "price": 150, "variants": null, "image": "https://loremflickr.com/640/480/dal%20fry?lock=10078", "imageAlt": "dal fry"}, {"name": "Dal Yellow Tadka", "price": 160, "variants": null, "image": "https://loremflickr.com/640/480/yellow%20dal%20tadka?lock=10079", "imageAlt": "yellow dal tadka"}, {"name": "Dal Makhni", "price": 220, "variants": null, "image": "https://loremflickr.com/640/480/dal%20makhani?lock=10080", "imageAlt": "dal makhani"}, {"name": "Mushroom Masala", "price": 220, "variants": null, "image": "https://loremflickr.com/640/480/mushroom%20masala?lock=10081", "imageAlt": "mushroom masala"}, {"name": "Mix Veg", "price": 210, "variants": null, "image": "https://loremflickr.com/640/480/mixed%20vegetable%20curry?lock=10082", "imageAlt": "mixed vegetable curry"}, {"name": "Allu Jeera", "price": 150, "variants": null, "image": "https://loremflickr.com/640/480/aloo%20jeera?lock=10083", "imageAlt": "aloo jeera"}, {"name": "Allu Gobhi Masala", "price": 180, "variants": null, "image": "https://loremflickr.com/640/480/aloo%20gobi%20masala?lock=10084", "imageAlt": "aloo gobi masala"}]}, {"category": "Non Veg Main Course", "items": [{"name": "Butter Chicken", "price": null, "variants": {"H": 270, "F": 370}, "image": "https://loremflickr.com/640/480/butter%20chicken?lock=10085", "imageAlt": "butter chicken"}, {"name": "Kadhai Chicken", "price": null, "variants": {"H": 260, "F": 360}, "image": "https://loremflickr.com/640/480/kadai%20chicken?lock=10086", "imageAlt": "kadai chicken"}, {"name": "Chicken Masala", "price": null, "variants": {"H": 230, "F": 350}, "image": "https://loremflickr.com/640/480/chicken%20masala?lock=10087", "imageAlt": "chicken masala"}]}, {"category": "Tawa Roti / Tandoor Roti", "items": [{"name": "Tawa Roti", "price": 10, "variants": null, "image": "https://loremflickr.com/640/480/tawa%20roti?lock=10088", "imageAlt": "tawa roti"}, {"name": "Tawa Butter Roti", "price": 15, "variants": null, "image": "https://loremflickr.com/640/480/butter%20tawa%20roti?lock=10089", "imageAlt": "butter tawa roti"}, {"name": "Tandoori Roti", "price": 15, "variants": null, "image": "https://loremflickr.com/640/480/tandoori%20roti?lock=10090", "imageAlt": "tandoori roti"}, {"name": "Tandoori Butter Roti", "price": 20, "variants": null, "image": "https://loremflickr.com/640/480/tandoori%20butter%20roti?lock=10091", "imageAlt": "tandoori butter roti"}, {"name": "Butter Naan", "price": 40, "variants": null, "image": "https://loremflickr.com/640/480/butter%20naan?lock=10092", "imageAlt": "butter naan"}]}, {"category": "Salad / Papad", "items": [{"name": "Green Salad", "price": 70, "variants": null, "image": "https://loremflickr.com/640/480/green%20salad?lock=10093", "imageAlt": "green salad"}, {"name": "Papad (2pcs)", "price": 40, "variants": null, "image": "https://loremflickr.com/640/480/indian%20salad?lock=10094", "imageAlt": "indian salad"}, {"name": "Mix Raita", "price": 80, "variants": null, "image": "https://loremflickr.com/640/480/mixed%20raita?lock=10095", "imageAlt": "mixed raita"}]}, {"category": "Desert", "items": [{"name": "Vanila Ice Cream", "price": 50, "variants": null, "image": "https://loremflickr.com/640/480/vanilla%20ice%20cream?lock=10096", "imageAlt": "vanilla ice cream"}, {"name": "Butter Scotch", "price": 60, "variants": null, "image": "https://loremflickr.com/640/480/butterscotch%20ice%20cream?lock=10097", "imageAlt": "butterscotch ice cream"}]}, {"category": "Manchurian", "items": [{"name": "Veg. Manchurian", "price": 150, "variants": null, "image": "https://loremflickr.com/640/480/veg%20manchurian?lock=10098", "imageAlt": "veg manchurian"}, {"name": "Non. Manchurian", "price": 180, "variants": null, "image": "https://loremflickr.com/640/480/chicken%20manchurian?lock=10099", "imageAlt": "chicken manchurian"}]}];
+
+/* ================================
+   MENU DATA
+================================ */
+
+const MENU = [
+
+{
+category:"Tea",
+items:[
+{
+name:"Tea",
+price:30,
+image:"https://loremflickr.com/640/480/Indian%20chai%20tea?lock=10000"
+},
+{
+name:"Black Tea",
+price:30,
+image:"https://loremflickr.com/640/480/black%20tea%20cup?lock=10001"
+},
+{
+name:"Lemon Tea",
+price:30,
+image:"https://loremflickr.com/640/480/lemon%20tea?lock=10002"
+}
+]
+},
+
+{
+category:"Coffee",
+items:[
+{
+name:"Hot Coffee",
+price:70,
+image:"https://loremflickr.com/640/480/hot%20coffee%20cup?lock=10003"
+},
+{
+name:"Black Coffee",
+price:50,
+image:"https://loremflickr.com/640/480/black%20coffee%20cup?lock=10004"
+},
+{
+name:"Cold Coffee",
+price:110,
+image:"https://loremflickr.com/640/480/iced%20coffee?lock=10005"
+},
+{
+name:"Cold Coffee (With IceCream)",
+price:130,
+image:"https://loremflickr.com/640/480/iced%20coffee%20ice%20cream?lock=10006"
+}
+]
+},
+
+{
+category:"Drinks",
+items:[
+{
+name:"Fresh lime soda",
+price:60,
+image:"https://loremflickr.com/640/480/fresh%20lime%20soda?lock=10007"
+},
+{
+name:"Cold Drink",
+price:70,
+image:"https://loremflickr.com/640/480/cold%20soft%20drink?lock=10008"
+},
+{
+name:"Lassi",
+price:70,
+image:"https://loremflickr.com/640/480/lassi%20drink?lock=10009"
+},
+{
+name:"Badam Lassi",
+price:80,
+image:"https://loremflickr.com/640/480/badam%20lassi?lock=10010"
+}
+]
+},
+
+{
+category:"Shakes",
+items:[
+{
+name:"Mango Shake",
+price:110,
+image:"https://loremflickr.com/640/480/mango%20milkshake?lock=10011"
+},
+{
+name:"Oreo Shake",
+price:110,
+image:"https://loremflickr.com/640/480/oreo%20milkshake?lock=10012"
+},
+{
+name:"Chocolate Shake",
+price:120,
+image:"https://loremflickr.com/640/480/chocolate%20milkshake?lock=10013"
+},
+{
+name:"Butter scotch shake",
+price:120,
+image:"https://loremflickr.com/640/480/butterscotch%20milkshake?lock=10014"
+}
+]
+},
+
+{
+category:"Burger / Sandwich",
+items:[
+{
+name:"Veg Burger",
+price:100,
+image:"https://loremflickr.com/640/480/vegetable%20burger?lock=10015"
+},
+{
+name:"Chesse Burger",
+price:120,
+image:"https://loremflickr.com/640/480/cheese%20burger?lock=10016"
+},
+{
+name:"Veg Sandwich",
+price:90,
+image:"https://loremflickr.com/640/480/sandwich?lock=10017"
+},
+{
+name:"Veg Grilled Sandwich",
+price:120,
+image:"https://loremflickr.com/640/480/grilled%20sandwich?lock=10018"
+}
+]
+},
+
+{
+category:"Momos",
+items:[
+{
+name:"Veg Momos",
+price:90,
+image:"https://loremflickr.com/640/480/steamed%20veg%20momos?lock=10019"
+},
+{
+name:"Fried Momos",
+price:140,
+image:"https://loremflickr.com/640/480/fried%20momos?lock=10020"
+},
+{
+name:"Chilli Momos",
+price:160,
+image:"https://loremflickr.com/640/480/chilli%20momos?lock=10021"
+}
+]
+},
+
+{
+category:"Maggi",
+items:[
+{
+name:"Plain Maggi",
+price:40,
+image:"https://loremflickr.com/640/480/plain%20maggi%20noodles?lock=10022"
+},
+{
+name:"Vegetable Maggi",
+price:70,
+image:"https://loremflickr.com/640/480/vegetable%20maggi?lock=10023"
+},
+{
+name:"Butter Maggi",
+price:80,
+image:"https://loremflickr.com/640/480/butter%20maggi?lock=10024"
+},
+{
+name:"Egg Maggi",
+price:110,
+image:"https://loremflickr.com/640/480/egg%20maggi?lock=10025"
+},
+{
+name:"Chicken Maggi",
+price:130,
+image:"https://loremflickr.com/640/480/chicken%20maggi?lock=10026"
+}
+]
+},
+
+{
+category:"Breakfast",
+items:[
+{
+name:"Aalu Paratha",
+price:60,
+image:"https://loremflickr.com/640/480/aloo%20paratha?lock=10027"
+},
+{
+name:"Onion Paratha",
+price:70,
+image:"https://loremflickr.com/640/480/onion%20paratha?lock=10028"
+},
+{
+name:"Aalu Pyaz Paratha",
+price:70,
+image:"https://loremflickr.com/640/480/aloo%20onion%20paratha?lock=10029"
+},
+{
+name:"Bread Butter",
+price:60,
+image:"https://loremflickr.com/640/480/bread%20butter?lock=10030"
+},
+{
+name:"Mix Paatha",
+price:80,
+image:"https://loremflickr.com/640/480/mixed%20paratha?lock=10031"
+},
+{
+name:"Paneer Paratha",
+price:90,
+image:"https://loremflickr.com/640/480/paneer%20paratha?lock=10032"
+},
+{
+name:"Masala Omelette",
+price:70,
+image:"https://loremflickr.com/640/480/masala%20omelette?lock=10033"
+},
+{
+name:"Bread Omelette",
+price:90,
+image:"https://loremflickr.com/640/480/bread%20omelette?lock=10034"
+}
+]
+},
+
+{
+category:"Pakora",
+items:[
+{
+name:"Aalu Pakora",
+price:100,
+image:"https://loremflickr.com/640/480/pakora?lock=10035"
+},
+{
+name:"Aalu Pyaz Pakora",
+price:130,
+image:"https://loremflickr.com/640/480/onion%20pakora?lock=10036"
+},
+{
+name:"Mix Pakora",
+price:160,
+image:"https://loremflickr.com/640/480/mixed%20pakora?lock=10037"
+},
+{
+name:"Paneer Pakora",
+price:190,
+image:"https://loremflickr.com/640/480/paneer%20pakora?lock=10038"
+}
+]
+},
+
+{
+category:"Macroni",
+items:[
+{
+name:"Veg Macroni",
+price:140,
+image:"https://loremflickr.com/640/480/vegetable%20macaroni?lock=10039"
+},
+{
+name:"Veg Macroni (extra chesse)",
+price:160,
+image:"https://loremflickr.com/640/480/cheese%20macaroni?lock=10040"
+},
+{
+name:"Chicken Macroni",
+price:180,
+image:"https://loremflickr.com/640/480/chicken%20macaroni?lock=10041"
+}
+]
+},
+
+{
+category:"Soup",
+items:[
+{
+name:"Veg Soup",
+price:90,
+image:"https://loremflickr.com/640/480/vegetable%20soup?lock=10042"
+},
+{
+name:"Hot Manchow",
+price:100,
+image:"https://loremflickr.com/640/480/manchow%20soup?lock=10043"
+},
+{
+name:"Chicken Soup",
+price:130,
+image:"https://loremflickr.com/640/480/chicken%20soup?lock=10044"
+}
+]
+},
+
+{
+category:"Starter Veg",
+items:[
+{
+name:"Spring Roll",
+price:120,
+image:"https://loremflickr.com/640/480/vegetable%20spring%20rolls?lock=10045"
+},
+{
+name:"Chilly Potato",
+price:150,
+image:"https://loremflickr.com/640/480/chilli%20potato?lock=10046"
+},
+{
+name:"Honey Chilly Potato",
+price:170,
+image:"https://loremflickr.com/640/480/honey%20chilli%20potato?lock=10047"
+},
+{
+name:"French Fries",
+price:100,
+image:"https://loremflickr.com/640/480/french%20fries?lock=10048"
+},
+{
+name:"Paneer Finger",
+price:170,
+image:"https://loremflickr.com/640/480/paneer%20fingers?lock=10049"
+},
+{
+name:"Chilly Paneer",
+price:230,
+image:"https://loremflickr.com/640/480/chilli%20paneer?lock=10050"
+},
+{
+name:"Chilly Mushroom",
+price:210,
+image:"https://loremflickr.com/640/480/chilli%20mushroom?lock=10051"
+},
+{
+name:"Paneer Tikka",
+price:250,
+image:"https://loremflickr.com/640/480/paneer%20tikka?lock=10052"
+},
+{
+name:"Soya Chaap",
+price:200,
+image:"https://loremflickr.com/640/480/soya%20chaap?lock=10053"
+},
+{
+name:"Peanut Chaat",
+price:180,
+image:"https://loremflickr.com/640/480/peanut%20chaat?lock=10054"
+}
+]
+},
+
+{
+category:"Starter Non Veg",
+items:[
+{
+name:"Chicken Lollipop",
+variants:{F:230},
+image:"https://loremflickr.com/640/480/chicken%20lollipop?lock=10055"
+},
+{
+name:"Chilly Chicken",
+variants:{H:220,F:300},
+image:"https://loremflickr.com/640/480/chilli%20chicken?lock=10056"
+},
+{
+name:"Chicken Pakora",
+variants:{F:200},
+image:"https://loremflickr.com/640/480/chicken%20pakora?lock=10057"
+},
+{
+name:"Fish Pakora",
+variants:{F:230},
+image:"https://loremflickr.com/640/480/fish%20pakora?lock=10058"
+},
+{
+name:"Tandoori Chicken",
+variants:{H:260,F:370},
+image:"https://loremflickr.com/640/480/tandoori%20chicken?lock=10059"
+}
+]
+},
+
+{
+category:"Noodles Veg & Non Veg",
+items:[
+{
+name:"Veg Noodles",
+price:90,
+image:"https://loremflickr.com/640/480/vegetable%20noodles?lock=10060"
+},
+{
+name:"Veg Hakka Noodles",
+price:150,
+image:"https://loremflickr.com/640/480/hakka%20noodles?lock=10061"
+},
+{
+name:"Veg Schezwan Noodles",
+price:160,
+image:"https://loremflickr.com/640/480/schezwan%20noodles?lock=10062"
+},
+{
+name:"Veg Singapuri Noodles",
+price:170,
+image:"https://loremflickr.com/640/480/singapore%20noodles?lock=10063"
+},
+{
+name:"Egg Noodles",
+price:140,
+image:"https://loremflickr.com/640/480/egg%20noodles?lock=10064"
+},
+{
+name:"Chicken Noodles",
+price:180,
+image:"https://loremflickr.com/640/480/chicken%20noodles?lock=10065"
+}
+]
+},
+
+{
+category:"Rice / Biryani",
+items:[
+{
+name:"Plain Rice",
+price:100,
+image:"https://loremflickr.com/640/480/plain%20rice?lock=10066"
+},
+{
+name:"Jeera Rice",
+price:120,
+image:"https://loremflickr.com/640/480/jeera%20rice?lock=10067"
+},
+{
+name:"Veg Fried Rice",
+price:160,
+image:"https://loremflickr.com/640/480/vegetable%20fried%20rice?lock=10068"
+},
+{
+name:"Egg Fried Rice",
+price:170,
+image:"https://loremflickr.com/640/480/egg%20fried%20rice?lock=10069"
+},
+{
+name:"Chicken Fried Rice",
+price:190,
+image:"https://loremflickr.com/640/480/chicken%20fried%20rice?lock=10070"
+},
+{
+name:"Veg Biryani",
+price:210,
+image:"https://loremflickr.com/640/480/vegetable%20biryani?lock=10071"
+},
+{
+name:"Chicken Biryani",
+price:260,
+image:"https://loremflickr.com/640/480/chicken%20biryani?lock=10072"
+}
+]
+},
+
+{
+category:"Veg Main Course",
+items:[
+{
+name:"Kadhai Paneer",
+variants:{H:190,F:270},
+image:"https://loremflickr.com/640/480/kadhai%20paneer?lock=10073"
+},
+{
+name:"Sahi Paneer",
+variants:{H:180,F:260},
+image:"https://loremflickr.com/640/480/shahi%20paneer?lock=10074"
+},
+{
+name:"Paneer Butter Masala",
+variants:{H:190,F:270},
+image:"https://loremflickr.com/640/480/paneer%20butter%20masala?lock=10075"
+},
+{
+name:"Muttar Paneer",
+variants:{H:180,F:260},
+image:"https://loremflickr.com/640/480/matar%20paneer?lock=10076"
+},
+{
+name:"Paneer Bhurji",
+price:220,
+image:"https://loremflickr.com/640/480/paneer%20bhurji?lock=10077"
+},
+{
+name:"Dal Fry",
+price:150,
+image:"https://loremflickr.com/640/480/dal%20fry?lock=10078"
+},
+{
+name:"Dal Yellow Tadka",
+price:160,
+image:"https://loremflickr.com/640/480/yellow%20dal%20tadka?lock=10079"
+},
+{
+name:"Dal Makhni",
+price:220,
+image:"https://loremflickr.com/640/480/dal%20makhani?lock=10080"
+},
+{
+name:"Mushroom Masala",
+price:220,
+image:"https://loremflickr.com/640/480/mushroom%20masala?lock=10081"
+},
+{
+name:"Mix Veg",
+price:210,
+image:"https://loremflickr.com/640/480/mixed%20vegetable%20curry?lock=10082"
+},
+{
+name:"Allu Jeera",
+price:150,
+image:"https://loremflickr.com/640/480/aloo%20jeera?lock=10083"
+},
+{
+name:"Allu Gobhi Masala",
+price:180,
+image:"https://loremflickr.com/640/480/aloo%20gobi%20masala?lock=10084"
+}
+]
+},
+
+{
+category:"Non Veg Main Course",
+items:[
+{
+name:"Butter Chicken",
+variants:{H:270,F:370},
+image:"https://loremflickr.com/640/480/butter%20chicken?lock=10085"
+},
+{
+name:"Kadhai Chicken",
+variants:{H:260,F:360},
+image:"https://loremflickr.com/640/480/kadai%20chicken?lock=10086"
+},
+{
+name:"Chicken Masala",
+variants:{H:230,F:350},
+image:"https://loremflickr.com/640/480/chicken%20masala?lock=10087"
+}
+]
+},
+
+{
+category:"Tawa Roti / Tandoor Roti",
+items:[
+{
+name:"Tawa Roti",
+price:10,
+image:"https://loremflickr.com/640/480/tawa%20roti?lock=10088"
+},
+{
+name:"Tawa Butter Roti",
+price:15,
+image:"https://loremflickr.com/640/480/butter%20roti?lock=10089"
+},
+{
+name:"Tandoori Roti",
+price:15,
+image:"https://loremflickr.com/640/480/tandoori%20roti?lock=10090"
+},
+{
+name:"Tandoori Butter Roti",
+price:20,
+image:"https://loremflickr.com/640/480/tandoori%20butter%20roti?lock=10091"
+},
+{
+name:"Butter Naan",
+price:40,
+image:"https://loremflickr.com/640/480/butter%20naan?lock=10092"
+}
+]
+},
+
+{
+category:"Salad / Papad",
+items:[
+{
+name:"Green Salad",
+price:70,
+image:"https://loremflickr.com/640/480/green%20salad?lock=10093"
+},
+{
+name:"Papad (2pcs)",
+price:40,
+image:"https://loremflickr.com/640/480/papad?lock=10094"
+},
+{
+name:"Mix Raita",
+price:80,
+image:"https://loremflickr.com/640/480/mixed%20raita?lock=10095"
+}
+]
+},
+
+{
+category:"Desert",
+items:[
+{
+name:"Vanila Ice Cream",
+price:50,
+image:"https://loremflickr.com/640/480/vanilla%20ice%20cream?lock=10096"
+},
+{
+name:"Butter Scotch",
+price:60,
+image:"https://loremflickr.com/640/480/butterscotch%20ice%20cream?lock=10097"
+}
+]
+},
+
+{
+category:"Manchurian",
+items:[
+{
+name:"Veg. Manchurian",
+price:150,
+image:"https://loremflickr.com/640/480/veg%20manchurian?lock=10098"
+},
+{
+name:"Non. Manchurian",
+price:180,
+image:"https://loremflickr.com/640/480/chicken%20manchurian?lock=10099"
+}
+]
+}
+
+];
+
+
+/* ================================
+   ORDER SYSTEM
+================================ */
+
 const PHONE="919520951715";
-let active="All", cart={}, variants={};
+
+let active="All";
+let cart={};
+let variants={};
 
 const aliases={
  "Noodles Veg & Non Veg":"noodles",
@@ -217,100 +1434,551 @@ const aliases={
  "Desert":"dessert ice cream",
  "Drinks":"drink soda lassi"
 };
-const norm=s=>String(s).toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
-const slug=s=>norm(s).replace(/\s+/g,"-");
 
-function allCats(){return ["All",...MENU.map(x=>x.category)]}
-function itemText(x){return norm(x.name+" "+x.category+" "+(aliases[x.category]||""))}
-function match(x,q){return !q || norm(q).split(/\s+/).every(w=>itemText(x).includes(w))}
-function price(x){
- if(!x.variants)return x.price;
- let v=variants[slug(x.name)]||Object.keys(x.variants)[0];
- return x.variants[v]
+const norm=s =>
+ String(s)
+ .toLowerCase()
+ .replace(/[^a-z0-9]+/g," ")
+ .trim();
+
+const slug=s =>
+ norm(s).replace(/\s+/g,"-");
+
+function allCats(){
+ return [
+   "All",
+   ...MENU.map(x=>x.category)
+ ];
 }
-function variant(x){return variants[slug(x.name)]||Object.keys(x.variants||{})[0]}
+
+function itemText(x){
+ return norm(
+   x.name+" "+
+   x.category+" "+
+   (aliases[x.category]||"")
+ );
+}
+
+function match(x,q){
+
+ if(!q)return true;
+
+ return norm(q)
+   .split(/\s+/)
+   .every(
+     w=>itemText(x).includes(w)
+   );
+}
+
+function price(x){
+
+ if(!x.variants)
+   return x.price;
+
+ let v=
+   variants[slug(x.name)] ||
+   Object.keys(x.variants)[0];
+
+ return x.variants[v];
+}
+
+function variant(x){
+
+ return variants[slug(x.name)] ||
+   Object.keys(x.variants||{})[0];
+}
+
+
+/* NAV */
 
 function renderNav(){
+
  nav.innerHTML="";
+
  allCats().forEach(c=>{
-  let b=document.createElement("button");
-  b.textContent=c;b.className=c===active?"active":"";
-  b.onclick=()=>{active=c;search.value="";renderNav();render()};
-  nav.appendChild(b)
- })
+
+   let b=document.createElement("button");
+
+   b.textContent=c;
+
+   b.className=
+     c===active
+     ?"active"
+     :"";
+
+   b.onclick=()=>{
+
+     active=c;
+
+     search.value="";
+
+     renderNav();
+
+     render();
+
+   };
+
+   nav.appendChild(b);
+
+ });
+
 }
+
+
+/* MENU */
 
 function render(){
- let q=norm(search.value), found=0;
+
+ let q=norm(search.value);
+
+ let found=0;
+
  menu.innerHTML="";
+
  MENU.forEach(s=>{
-  if(active!=="All"&&active!==s.category)return;
-  let items=s.items.filter(x=>match({...x,category:s.category},q));
-  if(!items.length)return;
-  found+=items.length;
-  let sec=document.createElement("section");sec.className="section";
-  sec.innerHTML=`<div class="section-title"><h2>${s.category}</h2><i></i><small>${items.length} ITEMS</small></div>`;
-  let grid=document.createElement("div");grid.className="grid";
-  items.forEach(x=>grid.appendChild(card(x,s.category)));
-  sec.appendChild(grid);menu.appendChild(sec);
+
+   if(
+     active!=="All" &&
+     active!==s.category
+   )return;
+
+   let items=
+     s.items.filter(
+       x=>match(
+         {...x,category:s.category},
+         q
+       )
+     );
+
+   if(!items.length)return;
+
+   found+=items.length;
+
+   let sec=
+     document.createElement("section");
+
+   sec.className="section";
+
+   sec.innerHTML=`
+     <div class="section-title">
+       <h2>${s.category}</h2>
+       <i></i>
+       <small>
+         ${items.length} ITEMS
+       </small>
+     </div>
+   `;
+
+   let grid=
+     document.createElement("div");
+
+   grid.className="grid";
+
+   items.forEach(x=>{
+     grid.appendChild(
+       card(x,s.category)
+     );
+   });
+
+   sec.appendChild(grid);
+
+   menu.appendChild(sec);
+
  });
- if(!found)menu.innerHTML='<div class="noresult"><b>No dish found</b>Try noodles, chicken, paneer, momos...</div>'
+
+ if(!found){
+
+   menu.innerHTML=`
+     <div class="noresult">
+       <b>No dish found</b>
+       Try noodles, chicken,
+       paneer, momos...
+     </div>
+   `;
+
+ }
+
 }
+
+
+/* FOOD CARD */
 
 function card(x,cat){
- let k=slug(x.name), v=variant(x), p=price(x);
- let key=x.variants?x.name+" • "+v:x.name, qty=cart[key]?.qty||0;
- let el=document.createElement("article");el.className="item";
+
+ let k=slug(x.name);
+
+ let v=variant(x);
+
+ let p=price(x);
+
+ let key=
+   x.variants
+   ?x.name+" • "+v
+   :x.name;
+
+ let qty=
+   cart[key]?.qty || 0;
+
+ let el=
+   document.createElement("article");
+
+ el.className="item";
+
  el.innerHTML=`
-  <img class="pic" src="${x.image}" alt="${x.name}" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.visibility='hidden'">
-  <div>
-   <div class="name">${x.name}</div>
-   <div class="cat">${cat}</div>
-   <div class="actions">
-    <div class="qty"><button onclick='change(${JSON.stringify(key)},${p},-1)'>−</button><span>${qty}</span><button onclick='change(${JSON.stringify(key)},${p},1)'>+</button></div>
-    <button class="add" onclick='change(${JSON.stringify(key)},${p},1)'>ADD</button>
+
+   <img
+     class="pic"
+     src="${x.image}"
+     alt="${x.name}"
+     loading="lazy"
+     referrerpolicy="no-referrer"
+     onerror="this.style.visibility='hidden'"
+   >
+
+   <div>
+
+     <div class="name">
+       ${x.name}
+     </div>
+
+     <div class="cat">
+       ${cat}
+     </div>
+
+     <div class="actions">
+
+       <div class="qty">
+
+         <button
+           onclick='change(${JSON.stringify(key)},${p},-1)'>
+           −
+         </button>
+
+         <span>
+           ${qty}
+         </span>
+
+         <button
+           onclick='change(${JSON.stringify(key)},${p},1)'>
+           +
+         </button>
+
+       </div>
+
+       <button
+         class="add"
+         onclick='change(${JSON.stringify(key)},${p},1)'>
+         ADD
+       </button>
+
+     </div>
+
    </div>
-  </div>
-  <div class="price">₹${p}</div>
-  ${x.variants?`<div class="variants">${Object.keys(x.variants).map(z=>`<button class="${z===v?"active":""}" onclick='setVar(${JSON.stringify(x.name)},${JSON.stringify(z)})'>${z} ₹${x.variants[z]}</button>`).join("")}</div>`:""}
+
+   <div class="price">
+     ₹${p}
+   </div>
+
+   ${
+     x.variants
+     ?
+     `<div class="variants">
+       ${
+         Object.keys(x.variants)
+         .map(z=>`
+           <button
+             class="${z===v?"active":""}"
+             onclick='setVar(
+               ${JSON.stringify(x.name)},
+               ${JSON.stringify(z)}
+             )'>
+             ${z} ₹${x.variants[z]}
+           </button>
+         `)
+         .join("")
+       }
+     </div>`
+     :""
+   }
+
  `;
- return el
+
+ return el;
 }
 
-function setVar(name,v){variants[slug(name)]=v;render()}
+
+/* VARIANT */
+
+function setVar(name,v){
+
+ variants[slug(name)]=v;
+
+ render();
+
+}
+
+
+/* ADD / REMOVE */
+
 function change(k,p,d){
- if(!cart[k])cart[k]={qty:0,price:p};
- cart[k].qty+=d;if(cart[k].qty<=0)delete cart[k];
- update();render();toast.classList.add("show");setTimeout(()=>toast.classList.remove("show"),800)
+
+ if(!cart[k]){
+
+   cart[k]={
+     qty:0,
+     price:p
+   };
+
+ }
+
+ cart[k].qty+=d;
+
+ if(cart[k].qty<=0)
+   delete cart[k];
+
+ update();
+
+ render();
+
+ toast.classList.add("show");
+
+ setTimeout(
+   ()=>toast.classList.remove("show"),
+   800
+ );
+
 }
+
+
+/* CART */
+
 function update(){
- cartlist.innerHTML="";let total=0,count=0;
- Object.entries(cart).forEach(([k,x])=>{
-  total+=x.qty*x.price;count+=x.qty;
-  cartlist.innerHTML+=`<div class="crow"><div>${k}<br><small style="color:#71695f">Qty ${x.qty}</small></div><strong>₹${x.qty*x.price}</strong><button class="remove" onclick='del(${JSON.stringify(k)})'>×</button></div>`
+
+ cartlist.innerHTML="";
+
+ let total=0;
+
+ let count=0;
+
+ Object.entries(cart)
+ .forEach(([k,x])=>{
+
+   total+=
+     x.qty*x.price;
+
+   count+=x.qty;
+
+   cartlist.innerHTML+=`
+
+     <div class="crow">
+
+       <div>
+
+         ${k}
+
+         <br>
+
+         <small
+           style="color:#71695f">
+           Qty ${x.qty}
+         </small>
+
+       </div>
+
+       <strong>
+         ₹${x.qty*x.price}
+       </strong>
+
+       <button
+         class="remove"
+         onclick='del(${JSON.stringify(k)})'>
+         ×
+       </button>
+
+     </div>
+
+   `;
+
  });
- if(!count)cartlist.innerHTML='<div style="color:#756d62;font-size:11px;padding:7px 0">Your order is empty.</div>';
- countEl.textContent=count+" item"+(count===1?"":"s");
- totalEl.textContent=total
+
+ if(!count){
+
+   cartlist.innerHTML=`
+     <div
+       style="
+         color:#756d62;
+         font-size:11px;
+         padding:7px 0">
+       Your order is empty.
+     </div>
+   `;
+
+ }
+
+ countEl.textContent=
+   count+
+   " item"+
+   (count===1?"":"s");
+
+ totalEl.textContent=total;
+
 }
-function del(k){delete cart[k];update();render()}
-function toggleCart(){cartEl.classList.toggle("open")}
+
+
+function del(k){
+
+ delete cart[k];
+
+ update();
+
+ render();
+
+}
+
+
+function toggleCart(){
+
+ cartEl.classList.toggle("open");
+
+}
+
+
+/* WHATSAPP */
 
 function sendOrder(){
- let entries=Object.entries(cart),table=document.getElementById("table").value,note=document.getElementById("note").value.trim();
- if(!entries.length)return alert("Please add items first.");
- if(!table)return alert("Please select your table number.");
- let total=0,msg="THE TASTE RESTRO\n\nTABLE: "+table+"\n\nORDER:\n";
- entries.forEach(([k,x])=>{let a=x.qty*x.price;total+=a;msg+="• "+k+" × "+x.qty+" = ₹"+a+"\n"});
- msg+="\nTOTAL: ₹"+total;
- if(note)msg+="\nNOTE: "+note;
- window.open("https://wa.me/"+PHONE+"?text="+encodeURIComponent(msg),"_blank")
+
+ let entries=
+   Object.entries(cart);
+
+ let table=
+   document
+   .getElementById("table")
+   .value;
+
+ let note=
+   document
+   .getElementById("note")
+   .value
+   .trim();
+
+ if(!entries.length){
+
+   alert(
+     "Please add items first."
+   );
+
+   return;
+
+ }
+
+ if(!table){
+
+   alert(
+     "Please select your table number."
+   );
+
+   return;
+
+ }
+
+ let total=0;
+
+ let msg=
+   "THE TASTE RESTRO\n\n"+
+   "TABLE: "+table+
+   "\n\nORDER:\n";
+
+ entries.forEach(
+   ([k,x])=>{
+
+     let a=
+       x.qty*x.price;
+
+     total+=a;
+
+     msg+=
+       "• "+
+       k+
+       " × "+
+       x.qty+
+       " = ₹"+
+       a+
+       "\n";
+
+   }
+ );
+
+ msg+=
+   "\nTOTAL: ₹"+
+   total;
+
+ if(note)
+   msg+=
+     "\nNOTE: "+
+     note;
+
+ window.open(
+   "https://wa.me/"+
+   PHONE+
+   "?text="+
+   encodeURIComponent(msg),
+   "_blank"
+ );
+
 }
 
-const search=document.getElementById("search"),nav=document.getElementById("nav"),menu=document.getElementById("menu");
-const cartEl=document.getElementById("cart"),cartlist=document.getElementById("cartlist"),countEl=document.getElementById("count"),totalEl=document.getElementById("total"),toast=document.getElementById("toast");
-search.addEventListener("input",()=>{active="All";renderNav();render()});
-renderNav();render();update();
+
+/* ELEMENTS */
+
+const search=
+ document.getElementById("search");
+
+const nav=
+ document.getElementById("nav");
+
+const menu=
+ document.getElementById("menu");
+
+const cartEl=
+ document.getElementById("cart");
+
+const cartlist=
+ document.getElementById("cartlist");
+
+const countEl=
+ document.getElementById("count");
+
+const totalEl=
+ document.getElementById("total");
+
+const toast=
+ document.getElementById("toast");
+
+
+/* SEARCH */
+
+search.addEventListener(
+ "input",
+ ()=>{
+   active="All";
+   renderNav();
+   render();
+ }
+);
+
+
+/* START */
+
+renderNav();
+
+render();
+
+update();
+
+</script>
+
+</body>
+</html>
 </script>
 </body>
 </html>
